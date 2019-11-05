@@ -6,12 +6,6 @@ from matplotlib import style
 
 style.use('ggplot')
 
-#get our dataset
-initial_import = pd.read_csv('', names=[])
-
-#remove the csv headings from the dataset
-dataset = np.array(initial_import[1:])
-
 #function to normalize the dataset values, we require this to ensure all values are within similar range
 #Scaling the values to similar range is neccessary to get the best fit, otherwise the high difference in
 #range of variables leads some features dominating over others, which in turn disrupts weight calculation
