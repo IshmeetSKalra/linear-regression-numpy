@@ -21,14 +21,14 @@ def normalize(x):
 	return normal
 
 #function to calculate the weights, uses the formula m = ( (mean(x)*mean(y)) - mean(x*y) )/( mean(x2)^2 - mean(x^2) )
-def calculate_weights(x_n):
+def calculate_weights(x_n, y):
 	weights = np.zeros(7)
 	for j in range(x_n[0].size): 
-		 weights[j] = ( (np.mean(x_n[:,j]) * np.mean(yr)) - (np.mean(x_n[:,j] * yr)) ) / ( (np.mean(x_n[:,j])**2) - (np.mean(x_n[:,j] * x_n[:,j])) )
+		 weights[j] = ( (np.mean(x_n[:,j]) * np.mean(y)) - (np.mean(x_n[:,j] * y)) ) / ( (np.mean(x_n[:,j])**2) - (np.mean(x_n[:,j] * x_n[:,j])) )
 	return weights
 
 #function to calculate the biases, uses formula b = mean(y) - (w*mean(x))
-def calculate_biases(weight, x_n):
+def calculate_biases(weight, x_n, y):
 	biases = np.zeros(7)
 	for j in range(x_n[0].size):
 		 biases[j] = np.mean(y) - (weight[j] * (np.mean(x_n[:,j])))
